@@ -1,17 +1,27 @@
-// linking to the UI buttons
-const rock = document.getElementById("rock");
+// Linking to the UI ROCK button 
+const rock = document.getElementById('rock');
+// Plays round, user picked rock
 rock.addEventListener('click', () => {
+    rock.classList.toggle("rock");    
     playRound();
+    rock.classList.toggle("rock"); 
   });
+  // Linking to the UI PAPER button 
 const paper= document.getElementById('paper');
+// Plays round, user picked paper
 paper.addEventListener('click', () => {
+    paper.classList.toggle("paper");    
     playRound();
+    paper.classList.toggle("paper"); 
   });
-const scissors = document.getElementById("scissors");
+  // Linking to the UI SCISSORS button 
+const scissors = document.getElementById('scissors');
+// Plays round, user picked scissors
 scissors.addEventListener('click', () => {
+    scissors.classList.toggle("scissors");  
     playRound();
+    scissors.classList.toggle("scissors"); 
   });
-
 
 // Function to randomly generate the computer's answer
 function computerPlay() {
@@ -29,8 +39,20 @@ function computerPlay() {
 
 // Function to play one round of the game
 function playRound() {
+    // Determines which option the user picked
+    function playerChoice() {
+        if (rock.classList.contains("rock")) {
+            return "rock";
+        } else if (paper.classList.contains("paper")) {
+            return "paper"
+        } else if (scissors.classList.contains("scissors")){
+            return "scissors"
+        } else {
+            return "your answer"
+        }
+    }
     // Prompts player for selection
-    let playerSelection = prompt("Rock, Paper, or Scissors?")
+    let playerSelection = playerChoice();
     // Generates computer selection
     const computerSelection = computerPlay();
     // Converts player selection to string
