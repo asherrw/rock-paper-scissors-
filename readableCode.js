@@ -1,3 +1,18 @@
+// linking to the UI buttons
+const rock = document.getElementById("rock");
+rock.addEventListener('click', () => {
+    playRound();
+  });
+const paper= document.getElementById('paper');
+paper.addEventListener('click', () => {
+    playRound();
+  });
+const scissors = document.getElementById("scissors");
+scissors.addEventListener('click', () => {
+    playRound();
+  });
+
+
 // Function to randomly generate the computer's answer
 function computerPlay() {
     randomGameValue = Math.floor(Math.random() * 3);
@@ -78,58 +93,58 @@ function playRound() {
     }
     // Screening for valid words, styled with CSS
     else {
-        console.log(`%cHey nerd, ${playerSelectionLowercase} isn't an option`,
-        'color: green; background: yellow; font-size: 30px');
+        console.log(`%cYOU SHALL NOT PASS! ${playerSelectionLowercase} isn't an option dipshit`,
+        'color: red; background: yellow; font-size: 20px');
         return null;
     }
 }
 
-// Function to play multiple rounds of the game
-function game() {
-    // Initialise player score to zero
-    let playerScore = 0;
-    // Initialise computer score to zero
-    let computerScore = 0;
-    // Initialise games played to zero
-    let gamesPlayed = 0;
-    // Initiate while loop for 5 games
-    while (gamesPlayed < 5) {
-        // Increase gamesPlayed by 1 each loop
-        gamesPlayed++;
-        // For each game, check the returned result
-        roundResult = playRound();
-        // If result was win increase player score by 1
-        if (roundResult === "win") {
-            playerScore++;
-            console.log(`Player:${playerScore} Computer:${computerScore}`)
-        }
-        // If result was lose increase computer score by 1
-        else if (roundResult === "lose") {
-            computerScore++;
-            console.log(`Player:${playerScore} Computer:${computerScore}`)
-        }
-        // If result was draw increase both scores by 1
-        else if (roundResult === "draw") {
-            playerScore++;
-            computerScore++;
-            console.log(`Player:${playerScore} Computer:${computerScore}`)
-        }
-        // If null value returned
-        else {
-            gamesPlayed--;
-        }
-    }
-    // After 5 games, determines who won, or if it was a draw
-    if (playerScore > computerScore) {
-        console.log(`You won ! There scores were ${playerScore}:${computerScore}!`)
-    }
-    else if (computerScore > playerScore) {
-        console.log(`The computer won ! There scores were ${computerScore}:${playerScore}!`)
-    }
-    else {
-        console.log(`The game was tied with scores of ${playerScore}:${computerScore}!`)
-    }
-}
+// // Function to play multiple rounds of the game
+// function game() {
+//     // Initialise player score to zero
+//     let playerScore = 0;
+//     // Initialise computer score to zero
+//     let computerScore = 0;
+//     // Initialise games played to zero
+//     let gamesPlayed = 0;
+//     // Initiate while loop for 5 games
+//     while (gamesPlayed < 5) {
+//         // Increase gamesPlayed by 1 each loop
+//         gamesPlayed++;
+//         // For each game, check the returned result
+//         roundResult = playRound();
+//         // If result was win increase player score by 1
+//         if (roundResult === "win") {
+//             playerScore++;
+//             console.log(`Player:${playerScore} Computer:${computerScore}`)
+//         }
+//         // If result was lose increase computer score by 1
+//         else if (roundResult === "lose") {
+//             computerScore++;
+//             console.log(`Player:${playerScore} Computer:${computerScore}`)
+//         }
+//         // If result was draw increase both scores by 1
+//         else if (roundResult === "draw") {
+//             playerScore++;
+//             computerScore++;
+//             console.log(`Player:${playerScore} Computer:${computerScore}`)
+//         }
+//         // If null value returned
+//         else {
+//             gamesPlayed--;
+//         }
+//     }
+//     // After 5 games, determines who won, or if it was a draw
+//     if (playerScore > computerScore) {
+//         console.log(`You won ! There scores were ${playerScore}:${computerScore}!`)
+//     }
+//     else if (computerScore > playerScore) {
+//         console.log(`The computer won ! There scores were ${computerScore}:${playerScore}!`)
+//     }
+//     else {
+//         console.log(`The game was tied with scores of ${playerScore}:${computerScore}!`)
+//     }
+// }
 
 // Starts the game
-game();
+// game();
