@@ -12,16 +12,24 @@
 </head>
 
 <body>
-  <h1>This is a work in progress website, buttons work but it's ugly as hell !</h1>
-  <h3>Head over to the console !</h3>
-    <div class="instructions">
-      <p>Enter your answer here: </p>
-    </div>
-    <div id="buttons">
-      <button id="rock">ROCK</button>
-      <button id="paper">PAPER</button>
-      <button id="scissors">SCISSORS</button>
+
+  <div class="container">
+    <h1 class="typed-out"> A high-stakes game of Rock, Paper, Scissors! </h1>
   </div>
+
+    <div class="instructions">
+      <p>Choose your warrior: </p>
+    </div>
+    <div class="buttons">
+      <input class="option" id="rock" type="image" src="images/rockDog.PNG" name="ROCK" width="100" height="48" alt="submit"/>  
+      <input class="option" id="paper"  type="image" src="images/paperMouse.PNG" name="PAPER" width="100" height="48" alt="submit"/>
+      <input class="option" id="scissors"  type="image" src="images/scissorsCat.PNG" name="SCISSORS" width="100" height="48" alt="submit"/>
+  </div>
+  <div class="container2">
+    <div id="playerResults"></div>
+    <div id="computerResults"></div>
+    <div id="results"></div>
+</div>
    <script src="readableCode.js"></script>
 </body>
 

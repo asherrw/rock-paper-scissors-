@@ -6,6 +6,7 @@ rock.addEventListener('click', () => {
     playRound();
     rock.classList.toggle("rock"); 
   });
+
   // Linking to the UI PAPER button 
 const paper= document.getElementById('paper');
 // Plays round, user picked paper
@@ -14,6 +15,7 @@ paper.addEventListener('click', () => {
     playRound();
     paper.classList.toggle("paper"); 
   });
+
   // Linking to the UI SCISSORS button 
 const scissors = document.getElementById('scissors');
 // Plays round, user picked scissors
@@ -39,6 +41,7 @@ function computerPlay() {
 
 // Function to play one round of the game
 function playRound() {
+    
     // Determines which option the user picked
     function playerChoice() {
         if (rock.classList.contains("rock")) {
@@ -51,29 +54,47 @@ function playRound() {
             return "your answer"
         }
     }
-    // Prompts player for selection
+
+    // Registers the player's selection
     let playerSelection = playerChoice();
     // Generates computer selection
     const computerSelection = computerPlay();
+    // Where the player's choice is displayed
+    let playerResults = document.getElementById('playerResults')
+    // Where the computer's choice is displayed
+    let computerResults = document.getElementById('computerResults');
+    // Where the result of the round is displayed
+    let endMessage = document.getElementById('results');
+    // Initialise player score to zero
+    let playerScore = 0;
+    // Initialise computer score to zero
+    let computerScore = 0;
     // Converts player selection to string
     let playerSelectionString = String(playerSelection);
     // Converts player selection to all lowercase
     let playerSelectionLowercase = playerSelectionString.toLowerCase();
+
     // If player's selection is rock
     if (playerSelectionLowercase === "rock") {
         // If computer selection is rock then draw
         if (computerSelection === "rock") {
-            console.log("Draw!");
+            playerResults.textContent = "You chose PEDRO THE DOG"
+            computerResults.textContent = "Opponent chose PEDRO THE DOG";
+            endMessage.textContent = "Draw!";
             return "draw";
         }
         // If computer selection is paper then lose as paper beats rock
         else if (computerSelection === "paper") {
-            console.log("You lose - paper beats rock!")
+            playerResults.textContent = "You chose PEDRO THE DOG"
+            computerResults.textContent = "Opponent chose ALEJANDRO THE MOUSE";
+            endMessage.textContent = "You lose - ALEJANDRO THE MOUSE scares PEDRO THE DOG!";
             return "lose";
         }
         // If computer selection is scissors then win as scissors beats paper
         else {
-            console.log ("You win - rock beats scissors!")
+            playerResults.textContent = "You chose PEDRO THE DOG"
+            computerResults.textContent = "Opponent chose MIGUEL THE CAT";
+            endMessage.textContent = "You win - PEDRO THE DOG scares MIGUEL THE CAT!";
             return "win";
         }
     }
@@ -81,17 +102,23 @@ function playRound() {
     else if (playerSelectionLowercase === "paper") {
         // If computer selection is rock then win as paper beats rock
         if (computerSelection === "rock") {
-            console.log("You win - paper beats rock!")
+            playerResults.textContent = "You chose ALEJANDRO THE MOUSE"
+            computerResults.textContent = "Opponent chose PEDRO THE DOG";
+            endMessage.textContent = "You win - ALEJANDRO THE MOUSE scares PEDRO THE DOG!";
             return "win";
         }
         // If computer selection is paper then draw
         else if (computerSelection === "paper") {
-            console.log("Draw!")
+            playerResults.textContent = "You chose ALEJANDRO THE MOUSE"
+            computerResults.textContent = "Opponent chose ALEJANDRO THE MOUSE";
+            endMessage.textContent = "Draw!";
             return "draw";
         }
         // If computer selection is scissors then lose as scissors beats paper
         else {
-            console.log("You lose - scissors beats paper!")
+            playerResults.textContent = "You chose ALEJANDRO THE MOUSE"
+            computerResults.textContent = "Opponent chose MIGUEL THE CAT";
+            endMessage.textContent = "You lose - MIGUEL THE CAT scares ALEJANDRO THE MOUSE!";
             return "lose";
         }
     }
@@ -99,17 +126,23 @@ function playRound() {
     else if (playerSelectionLowercase === "scissors") {
         // If computer selection is rock then lose as rock beats scissors
         if (computerSelection === "rock") {
-            console.log("You lose - rock beats scissors!")
+            playerResults.textContent = "You chose MIGUEL THE CAT"
+            computerResults.textContent = "Opponent chose PEDRO THE DOG";
+            endMessage.textContent = "You lose - PEDRO THE DOG scares MIGUEL THE CAT!";
             return "lose";
         }
         // If computer selection is paper then win as scissors beats paper
         else if (computerSelection === "paper") {
-            console.log("You win - scissors beats paper!")
+            playerResults.textContent = "You chose MIGUEL THE CAT"
+            computerResults.textContent = "Opponent chose ALEJANDRO THE MOUSE";
+            endMessage.textContent = "You win - MIGUEL THE CAT scares ALEJANDRO THE MOUSE!";
             return "win";
         }
         // If computer selection is scissors then draw
         else {
-            console.log("Draw!")
+            playerResults.textContent = "You chose MIGUEL THE CAT"
+            computerResults.textContent = "Opponent chose MIGUEL THE CAT";
+            endMessage.textContent = "Draw!"
             return "draw";
         }
     }
@@ -120,53 +153,3 @@ function playRound() {
         return null;
     }
 }
-
-// // Function to play multiple rounds of the game
-// function game() {
-//     // Initialise player score to zero
-//     let playerScore = 0;
-//     // Initialise computer score to zero
-//     let computerScore = 0;
-//     // Initialise games played to zero
-//     let gamesPlayed = 0;
-//     // Initiate while loop for 5 games
-//     while (gamesPlayed < 5) {
-//         // Increase gamesPlayed by 1 each loop
-//         gamesPlayed++;
-//         // For each game, check the returned result
-//         roundResult = playRound();
-//         // If result was win increase player score by 1
-//         if (roundResult === "win") {
-//             playerScore++;
-//             console.log(`Player:${playerScore} Computer:${computerScore}`)
-//         }
-//         // If result was lose increase computer score by 1
-//         else if (roundResult === "lose") {
-//             computerScore++;
-//             console.log(`Player:${playerScore} Computer:${computerScore}`)
-//         }
-//         // If result was draw increase both scores by 1
-//         else if (roundResult === "draw") {
-//             playerScore++;
-//             computerScore++;
-//             console.log(`Player:${playerScore} Computer:${computerScore}`)
-//         }
-//         // If null value returned
-//         else {
-//             gamesPlayed--;
-//         }
-//     }
-//     // After 5 games, determines who won, or if it was a draw
-//     if (playerScore > computerScore) {
-//         console.log(`You won ! There scores were ${playerScore}:${computerScore}!`)
-//     }
-//     else if (computerScore > playerScore) {
-//         console.log(`The computer won ! There scores were ${computerScore}:${playerScore}!`)
-//     }
-//     else {
-//         console.log(`The game was tied with scores of ${playerScore}:${computerScore}!`)
-//     }
-// }
-
-// Starts the game
-// game();

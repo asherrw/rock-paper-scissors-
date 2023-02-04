@@ -1,12 +1,63 @@
 html {
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color:rgb(0, 23, 139);
+    font-family: monospace;
+    /* color:rgb(0, 23, 139); */
+    color:rgb(22, 32, 84);
   }
   body {
     width: 50%;
     max-width: 800px;
     min-width: 480px;
     margin: 0 auto;
-    background-color: #ffd5f0;
+    /* background-color: #ffd5f0; */
+    background-color: rgb(141, 176, 203);
     text-align: center;
+  }
+  .typed-out {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    width: 0;
+    animation: typing 5s forwards;
+  }
+  .container {
+    display: inline-block;
+    background-color: beige;
+    padding: 20px;
+    margin: 20px;
+    border: 3px solid blue;
+  }
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  .instructions {
+    background-color: rgb(176, 211, 238);
+    font-size: large;
+    padding: 1px;
+    font-family: monospace;
+  }
+  .buttons {
+    background-image: url(images/BEIGEBOX.PNG);
+    background-repeat: no-repeat;
+    background-position: 70px;
+  }
+  input {
+    height: 250px;
+    width: 250px;
+  }
+  input:hover {
+    transform: scale(1.1);
+  }
+  .container2 {
+    height: 100px;
+    font-size: large;
+    border-top: 3px solid blue;
+    border-bottom: 3px solid blue;
+    background-color: beige;
+    padding: 20px;
+    margin-bottom: 50px; margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
